@@ -58,7 +58,7 @@ stage ('aritifactory download') {
                      }
               }
            }
-          stage('upload to s3')
+        /*  stage('upload to s3')
           {
           steps{
           
@@ -67,7 +67,7 @@ stage ('aritifactory download') {
      s3Upload(file:'/var/jenkins_home/workspace/challengeAWS/artifacts/mindsapp/*.jar', bucket: 'keerthibucket24', path: 'artifacts/')
         }
           }
-          }
+          }*/
          
       }
       

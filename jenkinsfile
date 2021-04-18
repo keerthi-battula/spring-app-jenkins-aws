@@ -62,7 +62,7 @@ stage ('aritifactory download') {
           {
           steps{
           
-          withAWS(region: 'us-east-2', credentials: 'deploytos3') {
+          withAWS(credentials: 'deploytos3',region: 'us-east-2') {
     
      s3Upload(file:'/var/jenkins_home/workspace/challengeAWS/artifacts/mindsapp/*.jar', bucket: 'keerthibucket24', path: 'artifacts/')
         }

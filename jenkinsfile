@@ -47,7 +47,7 @@ stage ('aritifactory download') {
             )
             }
             }
-            stage('upload to ec2')
+         /*   stage('upload to ec2')
            {
               steps{
           sshagent(['3316db5c-8dd2-4c2d-bf0e-e4ea06d60f2d']){
@@ -62,7 +62,7 @@ stage ('aritifactory download') {
 
           withAWS(region:'us-east-2',credentials:'70be04d1-2159-4bd2-bf81-ad29e92c201e') {
                     s3Upload(file:'artifacts/mindsapp/*.jar', bucket:'keerthibucket', path:'artifacts/')
-          }
+          }*/
 
          
       }

@@ -64,7 +64,8 @@ stage ('aritifactory download') {
           
           withAWS(credentials: 'deploytos3',region: 'us-east-2') {
     
-     s3Upload(file:'/var/jenkins_home/workspace/challengeAWS/artifacts/mindsapp/*.jar', bucket: 'keerthibucket24', path: 'artifacts/')
+   //  s3Upload(file:'/var/jenkins_home/workspace/challengeAWS/artifacts/mindsapp/*.jar', bucket: 'keerthibucket24', path: 'artifacts/')
+     s3Upload acl: 'Private', bucket: 'keerthibucket24', cacheControl: '', excludePathPattern: '', file: '/var/jenkins_home/workspace/challengeAWS/artifacts/mindsapp/*.jar', includePathPattern: '', metadatas: [''], path: 'artifacts/', redirectLocation: '', sseAlgorithm: '', tags: '', text: '', workingDir: ''
         }
           }
           }

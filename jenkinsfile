@@ -61,9 +61,13 @@ stage ('aritifactory download') {
           stage('upload to s3')
           {
           steps{
-          withAWS(region:'us-east-2',credentials:'70be04d1-2159-4bd2-bf81-ad29e92c201e') {
-                    s3Upload(file:'artifacts/mindsapp/*.jar', bucket:'keerthibucket', path:'artifacts/')
-          }
+          //withAWS(region:'us-east-2',credentials:'70be04d1-2159-4bd2-bf81-ad29e92c201e') {
+               //     s3Upload(file:'artifacts/mindsapp/*.jar', bucket:'keerthibucket', path:'artifacts/')
+          //}
+          withAWS(region: 'us-east-2', credentials: 'deploytos3') {
+    // some block
+     s3Upload(file:'artifacts/mindsapp/*.jar', bucket:'keerthibucket', path:'artifacts/')
+}
           }
           }
          

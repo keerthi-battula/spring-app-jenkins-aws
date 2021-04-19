@@ -49,33 +49,33 @@ stage ('aritifactory download') {
             )
             }
             }
-         /*  stage('upload to ec2')
+           stage('upload to ec2')
            {
               steps{
           sshagent(['bddeeced-f3eb-4e0e-b10b-f6a69f9a7409']){
-                   sh 'ssh -o StrictHostKeyChecking=no ubuntu@3.139.59.90 pwd'
-                   sh 'scp -r /var/jenkins_home/workspace/challengeAWS/artifacts/mindsapp/*.jar ubuntu@3.139.59.90:/home/ubuntu/artifacts'
+                   
+                  sh 'scp -r /var/jenkins_home/workspace/challengeAWS/artifacts/mindsapp/*.jar ubuntu@3.139.59.90:/home/ubuntu/artifacts/'
                      }
               }
-           }*/
-         /* stage('upload to s3')
+           }
+         stage('upload to s3')
           {
           steps{
           
           withAWS(credentials: 'deploytos3',region: 'us-east-2') {
     
    //  s3Upload(file:'/var/jenkins_home/workspace/challengeAWS/artifacts/mindsapp/*.jar', bucket: 'keerthibucket24', path: 'artifacts/')
-     s3Upload  (file: '/var/jenkins_home/workspace/challengeAWS/artifacts/mindsapp/MindsApp-0.0.1-SNAPSHOT.jar', bucket: 'keerthibucket24', path: 'artifacts/')
+    s3Upload(file:'artifacts/mindsapp/', bucket:'kbucket18', path:'artifacts/')
         }
           }
-          }*/
-        sshagent(['bddeeced-f3eb-4e0e-b10b-f6a69f9a7409']){
+          }
+       /* sshagent(['bddeeced-f3eb-4e0e-b10b-f6a69f9a7409']){
                     sh 'scp -r /var/jenkins_home/workspace/challengeAWS/artifacts/mindsapp/*.jar ubuntu@3.139.59.90:/home/ubuntu/artifacts/'
           }
 
           withAWS(region:'us-east-2',credentials:'70be04d1-2159-4bd2-bf81-ad29e92c201e') {
                     s3Upload(file:'artifacts/mindsapp/', bucket:'kbucket18', path:'artifacts/') 
-                    }
+                    }*/
       }
       
 

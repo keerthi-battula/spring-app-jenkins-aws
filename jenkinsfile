@@ -52,7 +52,7 @@ stage ('aritifactory download') {
            stage('upload to ec2')
            {
               steps{
-          sshagent(['bddeeced-f3eb-4e0e-b10b-f6a69f9a7409']){
+          sshagent(['d2763713-cf03-4856-8c54-16735d4bafc0']){
                    
                   sh 'scp -r /var/jenkins_home/workspace/challengeAWS/artifacts/mindsapp/*.jar ubuntu@18.237.154.35:/home/ubuntu/artifacts/'
                      }
